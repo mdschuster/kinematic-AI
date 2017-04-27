@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{0BC448A7-345A-0D53-1FDA-B66CAE06EFFE}") = "kinematic-AI", "Assembly-CSharp.csproj", "{84A3146C-3D06-AF7B-EC9B-9D8ABE57C65B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84A3146C-3D06-AF7B-EC9B-9D8ABE57C65B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84A3146C-3D06-AF7B-EC9B-9D8ABE57C65B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84A3146C-3D06-AF7B-EC9B-9D8ABE57C65B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84A3146C-3D06-AF7B-EC9B-9D8ABE57C65B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
