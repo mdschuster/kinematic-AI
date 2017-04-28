@@ -19,14 +19,17 @@ public class Main : MonoBehaviour {
 		block2.GetComponent<Mover> ().init ();
 
 
-		if (block2.GetComponent<Mover> ().MyKinematic==null) {
+		if (block2.GetComponent<Mover> ().myKinematic==null) {
 			Debug.Log ("NULL block character");
 		}
-		world.init (block1.GetComponent<Mover>().MyKinematic,block2.GetComponent<Mover>().MyKinematic);
+
+		block1.GetComponent<AI> ().setAI ("Seek");
+		block2.GetComponent<AI> ().setAI ("Wander");
+		block1.GetComponent<AI> ().setTarget (block2.GetComponent<Mover>().myKinematic);
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		world.update ();
 	}
 }
