@@ -6,8 +6,8 @@ public abstract class KinematicAICore{
 	Kinematic character;
 	Kinematic target;
 
-	//holds max speed
-	float maxspeed=5f;
+	//holds default max speed
+	float maxspeed=10f;
 	float maxrotation=5f;
 	float radius=0.1f;
 	float timeToTarget=0.5f;
@@ -28,7 +28,6 @@ public abstract class KinematicAICore{
 		}
 		if(target==null){
 			Debug.Log("Warning: NULL target");
-			target = character;
 		}
 
 		steering.Velocity = getTargetVector (character.Position, target.Position);

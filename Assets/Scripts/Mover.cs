@@ -6,6 +6,8 @@ public class Mover : MonoBehaviour {
 	public Kinematic myKinematic;
 	KinematicSteeringOutput steering;
 	AI myAI;
+	float maxSpeed;
+	float maxRotation;
 
 	// Use this for initialization
 	void Start () {

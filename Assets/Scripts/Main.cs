@@ -25,6 +25,7 @@ public class Main : MonoBehaviour {
 
 		block1.GetComponent<AI> ().setAI ("Seek");
 		block2.GetComponent<AI> ().setAI ("Wander");
+		block2.GetComponent<AI> ().setSpeed (5f,5f);
 		block1.GetComponent<AI> ().setTarget (block2.GetComponent<Mover>().myKinematic);
 
 	}

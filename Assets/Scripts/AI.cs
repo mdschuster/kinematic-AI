@@ -55,10 +55,17 @@ public class AI : MonoBehaviour{
 
 	public KinematicSteeringOutput getSteering(Kinematic self){
 		if (this.target == null) {
-			Debug.Log ("Target is Null, getSteering");
+			//if there is no target, set it to yourself
+			this.target = self;
 		}
 		KSO = AICore.getSteering(self,this.target);
 		return this.KSO;
+	}
+
+	//allows setting the max speed and max rotation allowed by this AI
+	public void setSpeed(float maxSpeed, float maxRotation){
+		AICore.Maxspeed = maxSpeed;
+		AICore.Maxrotation = maxRotation;
 	}
 
 
