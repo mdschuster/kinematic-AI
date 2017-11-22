@@ -15,18 +15,26 @@ public class Main : MonoBehaviour {
 		block1 = GameObject.Find ("Cube1");
 		block2 = GameObject.Find ("Cube2");
 
-		block1.GetComponent<Mover> ().init ();
-		block2.GetComponent<Mover> ().init ();
+		Mover b1Mover = block1.GetComponent<Mover> ();
+		Mover b2Mover = block2.GetComponent<Mover> ();
+
+		AI b1AI = block1.GetComponent<AI> ();
+		AI b2AI = block2.GetComponent<AI> ();
+
+		b1Mover.init ();
+		b2Mover.init ();
 
 
 		if (block2.GetComponent<Mover> ().myKinematic==null) {
 			Debug.Log ("NULL block character");
 		}
 
-		block1.GetComponent<AI> ().setAI ("Seek");
-		block2.GetComponent<AI> ().setAI ("Wander");
-		block2.GetComponent<AI> ().setSpeed (5f,5f);
-		block1.GetComponent<AI> ().setTarget (block2.GetComponent<Mover>().myKinematic);
+		b1AI.setAI ("Seek");
+		b2AI.setAI ("Wander");
+		b1AI.setSpeed (10f,10f);
+		b2AI.setSpeed (10f,10f);
+		b1AI.setTarget (b2Mover.myKinematic);
+		b2AI.setTarget (b1Mover.myKinematic);
 
 	}
 	

@@ -14,9 +14,6 @@ public class Kinematic {
 		//update position and orientation
 		position += steering.Velocity * dt;
 		orientation += steering.Rotation * dt;
-		//and the velocity and rotation
-		//velocity += steering.Velocity * dt;
-		//rotation += steering.Rotation * dt;
 	}
 
 	public Vector3 Position {

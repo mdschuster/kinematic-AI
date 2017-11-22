@@ -32,12 +32,8 @@ public abstract class KinematicAICore{
 
 		steering.Velocity = getTargetVector (character.Position, target.Position);
 
-		//steering.Linear=target.Position-character.Position;
-		//Debug.Log ("1 " +steering.Velocity);
-
 		//the velocity is along this direction, at full speed
 		steering.Velocity=getVelocity(steering);
-		//steering.Velocity *= maxspeed;
 
 		//steering.Velocity=getArrive (steering);
 		if (steering.Velocity.magnitude == 0f) {
@@ -49,13 +45,12 @@ public abstract class KinematicAICore{
 
 		//output the steering
 		steering.Rotation=getRotation();
-		//Debug.Log (steering.Rotation);
 
 		return steering;
 	}
 
-	public float getNewOrientation(KinematicSteeringOutput steering){
-		if (this.character.Velocity.magnitude == 0) {
+	public virtual float getNewOrientation(KinematicSteeringOutput steering){
+		if (steering.Velocity.magnitude > 0f) {
 			return (float)Mathf.Atan2 (steering.Velocity.x, steering.Velocity.z);
 		} else {
 			return this.character.Orientation;
@@ -148,7 +143,7 @@ public class KinematicSeek : KinematicAICore{
 
 }
 
-public class KinematicFlee : KinematicAICore{
+public class KinematicFlee : KinematicSeek{
 
 	protected override Vector3 getTargetVector (Vector3 charPos, Vector3 targetPos)
 	{
@@ -158,10 +153,6 @@ public class KinematicFlee : KinematicAICore{
 	protected override Vector3 getVelocity (KinematicSteeringOutput steering)
 	{
 		return steering.Velocity.normalized*base.Maxspeed;
-	}
-
-	protected override float getRotation(){
-		return 0f;
 	}
 }
 
@@ -176,7 +167,6 @@ public class KinematicWander : KinematicAICore{
 	protected override Vector3 getVelocity (KinematicSteeringOutput steering)
 	{
 
-		//return steering.Velocity.normalized*base.Maxspeed;
 		Vector3 vec= new Vector3(Mathf.Sin(Character.Orientation),0f,Mathf.Cos(Character.Orientation));
 		steering.Velocity = vec;
 		return base.Maxspeed*steering.Velocity.normalized ;
